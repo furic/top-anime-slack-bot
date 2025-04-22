@@ -22,6 +22,9 @@ jobs:
       - name: Build TypeScript
         run: npm run build
         
+      - name: Copy config files
+        run: cp config.json dist/
+        
       - name: Run update
         env:
           MAL_CLIENT_ID: ${{ secrets.MAL_CLIENT_ID }}
