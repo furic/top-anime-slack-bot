@@ -10,7 +10,10 @@ interface MALAnimeResponse {
   mean: number;
   media_type: string;
   num_episodes: number;
-  start_season: string;
+  start_season: {
+    year: number;
+    season: string;
+  };
 }
 
 interface MALRankingResponse {
@@ -94,7 +97,10 @@ export class MALApi {
         mean: data.mean,
         media_type: data.media_type,
         num_episodes: data.num_episodes,
-        start_season: data.start_season
+        start_season: data.start_season ? {
+          year: data.start_season.year,
+          season: data.start_season.season
+        } : undefined
       };
     } catch (error) {
       if (error instanceof Error) {
