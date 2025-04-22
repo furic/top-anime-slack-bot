@@ -5,7 +5,6 @@ export interface MALConfig {
 
 export interface SlackConfig {
   token: string;
-  channelId: string;
 }
 
 export interface Config {

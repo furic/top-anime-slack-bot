@@ -26,5 +26,4 @@ jobs:
         env:
           MAL_CLIENT_ID: ${{ secrets.MAL_CLIENT_ID }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: npm start 
