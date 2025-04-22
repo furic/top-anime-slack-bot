@@ -1,0 +1,30 @@
+name: Anime Update Schedule
+
+on:
+  schedule:
+    - cron: '30 10 * * 1'  # Every Monday at 10:30 AM UTC
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  update-anime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build TypeScript
+        run: npm run build
+        
+      - name: Run update
+        env:
+          MAL_CLIENT_ID: ${{ secrets.MAL_CLIENT_ID }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: npm start 

@@ -1,0 +1,39 @@
+{
+  "display_information": {
+    "name": "Top Anime Bot",
+    "description": "A bot that shares top anime rankings from MyAnimeList. Choose from airing, upcoming, all-time, and more!",
+    "background_color": "#1A6B4B"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Top Anime Bot",
+      "always_online": true
+    },
+    "slash_commands": [
+      {
+        "command": "/topanime",
+        "description": "Get top anime rankings",
+        "usage_hint": "[ranking_type]",
+        "should_escape": false,
+        "url": "https://top-anime-slack-bot.vercel.app/api/slack/commands"
+      }
+    ]
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "chat:write",
+        "channels:read",
+        "groups:read",
+        "chat:write.public",
+        "reactions:write",
+        "commands"
+      ]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+} 

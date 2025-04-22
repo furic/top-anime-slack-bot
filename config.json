@@ -1,0 +1,59 @@
+{
+  "messages": [
+    "Check out these top anime picks! 🎬",
+    "Here are the hottest anime right now! 🔥",
+    "Your weekly anime recommendations are here! 📺",
+    "Time for some anime greatness! ⭐"
+  ],
+  "anime": [
+    {
+      "name": "Action",
+      "emoji": "crossed_swords",
+      "emojiUnicode": "⚔️",
+      "description": "High-energy action-packed series"
+    },
+    {
+      "name": "Romance",
+      "emoji": "heart",
+      "emojiUnicode": "❤️",
+      "description": "Heartwarming love stories"
+    },
+    {
+      "name": "Comedy",
+      "emoji": "joy",
+      "emojiUnicode": "😂",
+      "description": "Hilarious and entertaining series"
+    },
+    {
+      "name": "Drama",
+      "emoji": "performing_arts",
+      "emojiUnicode": "🎭",
+      "description": "Emotional and dramatic stories"
+    },
+    {
+      "name": "Fantasy",
+      "emoji": "sparkles",
+      "emojiUnicode": "✨",
+      "description": "Magical and fantastical worlds"
+    },
+    {
+      "name": "Sci-Fi",
+      "emoji": "rocket",
+      "emojiUnicode": "🚀",
+      "description": "Futuristic and scientific adventures"
+    },
+    {
+      "name": "Slice of Life",
+      "emoji": "sunny",
+      "emojiUnicode": "☀️",
+      "description": "Everyday life stories"
+    },
+    {
+      "name": "Sports",
+      "emoji": "soccer",
+      "emojiUnicode": "⚽",
+      "description": "Sports-themed series"
+    }
+  ],
+  "channel": "social-anime"
+} 
