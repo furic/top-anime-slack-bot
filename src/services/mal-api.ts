@@ -8,6 +8,9 @@ interface MALAnimeResponse {
   genres: Array<{ id: number; name: string }>;
   rating: string;
   mean: number;
+  media_type: string;
+  num_episodes: number;
+  start_season: string;
 }
 
 interface MALRankingResponse {
@@ -24,7 +27,7 @@ export class MALApi {
   }
 
   private async fetchAnimeDetails(animeId: number): Promise<AnimeDetails> {
-    const response = await axios.get<MALAnimeResponse>(`https://api.myanimelist.net/v2/anime/${animeId}`, {
+    const response = await axios.get<MALAnimeResponse>(`${this.config.baseUrl}/anime/${animeId}`, {
       headers: {
         'X-MAL-CLIENT-ID': this.config.clientId,
       },
@@ -45,7 +48,7 @@ export class MALApi {
   }
 
   async getTopAnime(rankingType: RankingType = 'airing', limit: number = 10): Promise<AnimeDetails[]> {
-    const response = await axios.get<MALRankingResponse>('https://api.myanimelist.net/v2/anime/ranking', {
+    const response = await axios.get<MALRankingResponse>(`${this.config.baseUrl}/anime/ranking`, {
       headers: {
         'X-MAL-CLIENT-ID': this.config.clientId,
       },
@@ -73,15 +76,26 @@ export class MALApi {
 
   async getAnimeDetails(animeId: number): Promise<AnimeDetails> {
     try {
-      const response = await axios.get(`https://api.myanimelist.net/v2/anime/${animeId}`, {
+      const response = await axios.get<MALAnimeResponse>(`${this.config.baseUrl}/anime/${animeId}`, {
         headers: {
           'X-MAL-CLIENT-ID': this.config.clientId,
         },
         params: {
-          fields: 'id,title,synopsis,genres,rating,mean'
+          fields: 'id,title,synopsis,genres,rating,mean,media_type,num_episodes,start_season'
         }
       });
-      return response.data;
+      const data = response.data;
+      return {
+        id: data.id,
+        title: data.title,
+        synopsis: data.synopsis,
+        genres: data.genres.map(genre => ({ id: genre.id, name: genre.name } as Genre)),
+        rating: data.rating,
+        mean: data.mean,
+        media_type: data.media_type,
+        num_episodes: data.num_episodes,
+        start_season: data.start_season
+      };
     } catch (error) {
       if (error instanceof Error) {
         console.error(`Error fetching details for anime ${animeId}:`, error.message);

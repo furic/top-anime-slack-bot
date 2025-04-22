@@ -81,9 +81,10 @@ class SlackBot {
     const header = `*${randomMessage}*\n\n`;
     const animeEntries = animeList.map((anime, index) => {
       const emoji = this.getAnimeEmoji(anime);
-      const rating = anime.mean ? `Rating: ⭐ ${anime.mean}` : 'Rating: N/A';
-      const genres = anime.genres?.map(g => g.name).join(', ') || 'Unknown';
-      return `${index + 1}. ${emoji} *${anime.title}*\n${rating} | Genres: ${genres}\n`;
+      const mediaType = anime.media_type || 'Unknown';
+      const episodes = anime.num_episodes ? `(${anime.num_episodes} eps)` : '';
+      const season = anime.start_season ? `${anime.start_season.season} ${anime.start_season.year}` : 'TBA';
+      return `${index + 1}. :${emoji}: *${anime.title}* | ${mediaType} ${episodes} | ${season}\n`;
     }).join('\n');
 
     return `${header}${animeEntries}\n_React with an emoji to show which shows you're watching!_`;

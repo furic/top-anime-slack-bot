@@ -69,6 +69,12 @@ export interface AnimeDetails {
   genres: Genre[];
   rating: string;
   mean: number;
+  media_type?: string;
+  num_episodes?: number;
+  start_season?: {
+    year: number;
+    season: string;
+  };
 }
 
 export interface SlashCommandPayload {
