@@ -22,7 +22,27 @@ const config: Config = {
   schedule: {
     interval: '0 0 */14 * *' // Every 14 days at midnight
   },
-  defaultRankingType: 'airing'
+  defaultRankingType: 'airing',
+  anime: {
+    messages: ['Check out these top airing anime!'],
+    anime: [
+      {
+        name: 'Action',
+        emoji: '⚔️',
+        emojiUnicode: '⚔️',
+        emojiName: 'crossed_swords',
+        description: 'Action anime'
+      },
+      {
+        name: 'Adventure',
+        emoji: '🌟',
+        emojiUnicode: '🌟',
+        emojiName: 'star',
+        description: 'Adventure anime'
+      }
+    ],
+    channel: 'social-anime'
+  }
 };
 
 export default config; 
