@@ -14,33 +14,25 @@ class SlackBot {
   }
 
   private getAnimeEmoji(anime: AnimeDetails): string {
-    // Standard emoji fallback list
+    // Standard emoji fallback list - only including valid Slack emojis
     const standardEmojis = [
       'tv', 'movie_camera', 'clapper', 'video_game', 'book', 'art', 'musical_note',
       'microphone', 'headphones', 'guitar', 'violin', 'drum', 'saxophone', 'trumpet',
-      'musical_keyboard', 'musical_score', 'notes', 'studio_microphone', 'level_slider',
-      'control_knobs', 'radio', 'satellite', 'satellite_antenna', 'tv', 'vhs', 'dvd',
-      'camera', 'camera_with_flash', 'video_camera', 'movie_camera', 'film_projector',
-      'clapper', 'film_frames', 'ticket', 'admission_tickets', 'performing_arts',
-      'art', 'circus_tent', 'slot_machine', 'game_die', 'bowling', 'video_game',
-      'joystick', 'slot_machine', 'game_die', 'jigsaw', 'chess_pawn', 'dart',
-      'mahjong', 'clubs', 'diamonds', 'hearts', 'spades', 'black_joker', 'flower_playing_cards',
-      'magnet', 'compass', 'telescope', 'microscope', 'crystal_ball', 'prayer_beads',
-      'nazar_amulet', 'barber', 'alembic', 'telescope', 'microscope', 'hole', 'pill',
-      'syringe', 'drop_of_blood', 'dna', 'microbe', 'petri_dish', 'test_tube',
-      'thermometer', 'label', 'bookmark', 'toilet', 'shower', 'bathtub', 'mouse_trap',
-      'razor', 'lotion_bottle', 'safety_pin', 'broom', 'basket', 'roll_of_paper',
-      'soap', 'sponge', 'fire_extinguisher', 'shopping_cart', 'smoking', 'coffin',
-      'funeral_urn', 'moyai', 'placard', 'identification_card', 'passport_control',
+      'musical_keyboard', 'musical_score', 'notes', 'studio_microphone', 'radio',
+      'satellite', 'camera', 'camera_with_flash', 'video_camera', 'film_projector',
+      'ticket', 'performing_arts', 'circus_tent', 'game_die', 'bowling',
+      'joystick', 'jigsaw', 'chess_pawn', 'dart', 'mahjong', 'clubs', 'diamonds',
+      'hearts', 'spades', 'black_joker', 'magnet', 'compass', 'telescope',
+      'microscope', 'crystal_ball', 'prayer_beads', 'nazar_amulet', 'barber',
+      'alembic', 'thermometer', 'label', 'bookmark', 'toilet', 'shower',
+      'bathtub', 'mouse_trap', 'razor', 'lotion_bottle', 'safety_pin', 'broom',
+      'basket', 'soap', 'sponge', 'fire_extinguisher', 'shopping_cart', 'smoking',
+      'coffin', 'funeral_urn', 'placard', 'identification_card', 'passport_control',
       'customs', 'baggage_claim', 'left_luggage', 'warning', 'children_crossing',
       'no_entry', 'prohibited', 'no_bicycles', 'no_smoking', 'no_littering',
       'non-potable_water', 'no_pedestrians', 'no_mobile_phones', 'underage',
-      'radioactive', 'biohazard', 'up_arrow', 'up-right_arrow', 'right_arrow',
-      'down-right_arrow', 'down_arrow', 'down-left_arrow', 'left_arrow',
-      'up-left_arrow', 'up-down_arrow', 'left-right_arrow', 'right_arrow_curving_left',
-      'left_arrow_curving_right', 'right_arrow_curving_up', 'right_arrow_curving_down',
-      'clockwise_vertical_arrows', 'counterclockwise_arrows_button', 'BACK_arrow',
-      'END_arrow', 'ON!_arrow', 'SOON_arrow', 'TOP_arrow', 'place_of_worship',
+      'radioactive', 'biohazard', 'up_arrow', 'right_arrow', 'down_arrow',
+      'left_arrow', 'up-down_arrow', 'left-right_arrow', 'place_of_worship',
       'atom_symbol', 'om', 'star_of_david', 'wheel_of_dharma', 'yin_yang',
       'latin_cross', 'orthodox_cross', 'star_and_crescent', 'peace_symbol',
       'menorah', 'dotted_six-pointed_star', 'aries', 'taurus', 'gemini',
@@ -57,10 +49,7 @@ class SlackBot {
       'hollow_red_circle', 'check_mark_button', 'check_box_with_check',
       'check_mark', 'cross_mark', 'cross_mark_button', 'curly_loop',
       'double_curly_loop', 'part_alternation_mark', 'eight-spoked_asterisk',
-      'eight-pointed_star', 'sparkle', 'copyright', 'registered', 'trade_mark',
-      'keycap_#', 'keycap_*', 'keycap_0', 'keycap_1', 'keycap_2', 'keycap_3',
-      'keycap_4', 'keycap_5', 'keycap_6', 'keycap_7', 'keycap_8', 'keycap_9',
-      'keycap_10'
+      'eight-pointed_star', 'sparkle', 'copyright', 'registered', 'trade_mark'
     ];
 
     // First try to get emoji from genres
