@@ -10,6 +10,7 @@ export interface SlackConfig {
 export interface Config {
   mal: MALConfig;
   slack: SlackConfig;
+  anime: AnimeConfig;
   schedule: {
     interval: string;
   };
@@ -74,6 +75,9 @@ export interface AnimeDetails {
   start_season?: {
     year: number;
     season: string;
+  };
+  alternative_titles?: {
+    ja?: string;
   };
 }
 
